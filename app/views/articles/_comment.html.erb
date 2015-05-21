@@ -1,0 +1,5 @@
+<% @comments.each do | comment | %>
+    <h6 class="subheading"><%= comment.user %></h6>
+    <span class="meta"><%= comment.content %></span>
+    <hr>
+<% end %>
