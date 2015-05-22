@@ -5,10 +5,23 @@
 			<strong>Success!</strong> <%= flash[:notice] %>
 		</div>
 	<% end %>
+    <% if flash[:error] %>
+        <div class="alert alert-danger" style="margin-top:2%">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Import Error!</strong> <%= flash[:error] %>
+        </div>
+    <% end %>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <fieldset>
                 <legend>Import Article From Excel file</legend>
+                <div class="alert alert-danger">
+                    <strong>Warning!</strong> Before importing file<br>
+                    1. First row should be column name (title and content)<br>
+                    2. <strong>title</strong> - string<br>
+                    3. <strong>content</strong> - text<br>
+                    4. Make sure your file are is xlsx format.
+                </div>
                 <%= form_tag import_articles_path, multipart: true, :class => "form-horizontal", :role => "form" do %>
                     <div class="form-group">
                         <div class="col-sm-10">

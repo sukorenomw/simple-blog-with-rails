@@ -63,8 +63,11 @@ class ArticlesController < ApplicationController
 
 
   def import
-    Article.import(params[:file])
-    redirect_to root_url, notice: "Article imported."
+    if Article.import(params[:file])
+      redirect_to root_url, notice: "Article imported."
+    else
+      redirect_to root_url, error: "Please try again."
+    end
   end
 
   private
