@@ -22,6 +22,18 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find_by_id(params[:id])
+  end
+
+  def update
+    @article = Article.find_by_id(params[:id])
+    if @article.update(param_article)
+      flash[:notice] = "Article successfully updated!"
+      redirect_to action: 'index'
+    else
+      flash[:error] = "Article successfully updated!"
+      render "edit"
+    end
   end
 
   def show

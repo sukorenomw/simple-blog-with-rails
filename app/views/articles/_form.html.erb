@@ -54,7 +54,7 @@
 			</div>
 			<br/>
 			<div id="editor">
-					Content...
+					<%= @article.content.html_safe if @article.content? %>
 			</div>
 			<%= f.text_area :content, {:class => "form-control", :style => "display:none;", :id => "desc"} %>
 		</div>
