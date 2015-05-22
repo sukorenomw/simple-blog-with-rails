@@ -28,6 +28,13 @@ class ArticlesController < ApplicationController
   	@article = Article.find_by_id(params[:id])
   	@comments = @article.comments.order("id desc")
   	@comment = Comment.new
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ArticlePdf.new(@article)
+        send_data pdf.render, filename: 'article.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def destroy
