@@ -60,6 +60,13 @@ class ArticlesController < ApplicationController
     end
   end
 
+
+
+  def import
+    Article.import(params[:file])
+    redirect_to root_url, notice: "Article imported."
+  end
+
   private
   	def param_article
   		params.require(:article).permit(:title, :content)

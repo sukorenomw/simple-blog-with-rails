@@ -1,10 +1,31 @@
 <div class="container">
 	<% if flash[:notice] %>
-			<div class="alert alert-success" style="margin-top:2%">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<strong>Success!</strong> <%= flash[:notice] %>
-			</div>
-		<% end %>
+		<div class="alert alert-success" style="margin-top:2%">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>Success!</strong> <%= flash[:notice] %>
+		</div>
+	<% end %>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <fieldset>
+                <legend>Import Article From Excel file</legend>
+                <%= form_tag import_articles_path, multipart: true, :class => "form-horizontal", :role => "form" do %>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <%= file_field_tag :file, class: "btn btn-default" %>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <%= submit_tag "Import", class: "btn btn-default btn-primary" %> 
+                        </div>
+                    </div>
+                <% end %>
+            </fieldset>
+        </div>
+    </div>
+
+
 	<% @articles.each do | article | %>
 	<div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
