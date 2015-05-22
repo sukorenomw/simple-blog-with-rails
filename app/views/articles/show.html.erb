@@ -182,6 +182,12 @@
         </div>
         <ul class="navbar-menu animate">
             <li>
+                <a href="<%= article_path(@article.id, :format => "pdf") %>" class="animate">
+                    <span class="desc animate"> Download as PDF </span>
+                    <span class="fa fa-file-pdf-o"></span>
+                </a>
+            </li>
+            <li>
                 <a href="<%= article_path(@article.id) %>" class="animate" data-confirm="Delete this article ? " data-method="DELETE" rel="nofollow">
                     <span class="desc animate"> Delete Article </span>
                     <span class="glyphicon glyphicon-trash"></span>

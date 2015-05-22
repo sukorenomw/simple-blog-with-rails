@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
       format.html
       format.pdf do
         pdf = ArticlePdf.new(@article)
-        send_data pdf.render, filename: 'article.pdf', type: 'application/pdf'
+        send_data pdf.render, filename: @article.title, type: 'application/pdf'
       end
     end
   end
