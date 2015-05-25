@@ -1,10 +1,21 @@
 require 'roo'
+require 'csv'
+
 class Article < ActiveRecord::Base
 	attr_accessible :title, :content
 	has_many :comments, dependent: :destroy
 	validate :title, presence: true
 
 	self.per_page = 10
+
+	def self.to_xlsx(options = {})
+		CSV.generate(options) do | csv |
+			csv << column_names
+			all.each do | article |
+				csv << article.attributes.values_at(*column_names)
+			end
+		end
+	end
 
 	def self.import(file)
 	  spreadsheet = open_spreadsheet(file)

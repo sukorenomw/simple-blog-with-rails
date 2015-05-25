@@ -31,7 +31,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'will_paginate-bootstrap'
 
 gem 'prawn'
-gem 'roo', '~> 2.0.0'
+gem 'roo'
 gem 'protected_attributes'
 
 group :doc do

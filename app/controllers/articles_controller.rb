@@ -3,7 +3,12 @@ class ArticlesController < ApplicationController
   	# @articles = Article.all.order("created_at desc")
   	@articles = Article.page(params[:page]).order("created_at desc")
   	# @articles = Article.paginate(:page => params[:page], :per_page => 10)
-
+    respond_to do |format|
+      format.html
+      format.xlsx do
+        send_data Article.to_xlsx(col_sep: "\t"), filename: 'all articles.xlsx', type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      end
+    end
   end
 
   def new
@@ -60,13 +65,11 @@ class ArticlesController < ApplicationController
     end
   end
 
-
-
   def import
     if Article.import(params[:file])
       redirect_to root_url, notice: "Article imported."
     else
-      redirect_to root_url, error: "Please try again."
+      redirect_to root_url, :flash => { :error => "Please Try Again."}
     end
   end
 
