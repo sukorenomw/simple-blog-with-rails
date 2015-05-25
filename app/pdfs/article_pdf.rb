@@ -9,7 +9,7 @@ class ArticlePdf < Prawn::Document
   end
  
   def header
-    image "#{Rails.root}/public/assets/img/home-bg.jpg", width: 530, height: 150
+    image "#{Rails.root}/public/assets/home-bg.jpg", width: 530, height: 150
     move_up 80
     font "Helvetica"
     text @article.title, :align => :center, :size => 32, :color => "FFFFFF", style: :bold
