@@ -2,17 +2,18 @@ require 'roo'
 require 'csv'
 
 class Article < ActiveRecord::Base
-	attr_accessible :title, :content
+	attr_accessible :title, :content, :created_at, :updated_at
 	has_many :comments, dependent: :destroy
 	validate :title, presence: true
+
 
 	self.per_page = 10
 
 	def self.to_xlsx(options = {})
 		CSV.generate(options) do | csv |
-			csv << column_names
+			csv << column_names - ['id']
 			all.each do | article |
-				csv << article.attributes.values_at(*column_names)
+				csv << article.attributes.values_at(*(column_names - ['id']))
 			end
 		end
 	end

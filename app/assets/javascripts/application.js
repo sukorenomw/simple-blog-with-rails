@@ -15,4 +15,4 @@
 //= require_tree .
 //= require bootstrap.min
 //= require bootstrap.wysiwyg
-//= require clean-blog.min
+//= require clean-blog
