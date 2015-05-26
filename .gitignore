@@ -33,6 +33,6 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
-Gemfile.lock
+#Gemfile.lock
 /config/database.yml
 /public/upload_images/
