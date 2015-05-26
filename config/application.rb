@@ -22,6 +22,5 @@ module Task5
     # config.i18n.default_locale = :de
     config.assets.paths << Rails.root.join("vendor","assets", "fonts")   
     config.assets.initialize_on_precompile = false
-    config.secret_key_base = ENV["SECRET_KEY_BASE"]
   end
 end
