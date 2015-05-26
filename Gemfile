@@ -33,6 +33,8 @@ gem 'will_paginate-bootstrap'
 gem 'prawn'
 gem 'roo'
 gem 'protected_attributes'
+gem 'bcrypt-ruby', require: 'bcrypt'
+gem 'simple_captcha2', require: 'simple_captcha'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

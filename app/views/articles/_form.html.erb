@@ -1,5 +1,6 @@
 <%= form_for @article, :html => {:class => "form-horizontal", :role => "form"} do |f| %>
 	<div class="form-group">
+		<%= f.hidden_field :user_id, value: current_user.id %>
 		<%= f.label :title, "Title:", class: "col-sm-2 control-label" %>
 		<div class="col-sm-5">
 			<%= f.text_field :title, {:class => "form-control", :required => "required", :placeholder => "Article title .."} %>

@@ -220,22 +220,9 @@
                     <%= render 'comment' %>
 
                 </div>
+                <% if current_user %>
                 <%= form_for @comment, :html => {:class => "form-horizontal", :role => "form"}, :remote => true do |f| %>
                     <%= f.hidden_field :article_id, value: @article.id %>
-                    <div class="form-group">
-                        <%= f.label :user, "Name:", class: "col-sm-2 control-label" %>
-                        <div class="col-sm-5">
-                            <%= f.text_field :user, {:class => "form-control", :required => "required", :placeholder => "Insert your name .."} %>
-                        </div>
-                        <% if @comment.errors[:name].any? %>
-                        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                            <div class="alert alert-danger" style="padding:1%; padding-left:3%; margin:0;">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                <strong>Error!</strong> name <%= @comment.errors[:name].first unless @comment.errors[:name].blank? %>
-                            </div>
-                        </div>
-                        <% end %>
-                    </div>
                     <div class="form-group">
                         <%= f.label :content, "Comment:", class: "col-sm-2 control-label" %>
                         <div class="col-sm-5">
@@ -255,6 +242,7 @@
                             <%= f.submit "Submit", class: "btn btn-default btn-primary" %> 
                         </div>
                     </div>
+                <% end %>
                 <% end %>
             </div>
         </div>

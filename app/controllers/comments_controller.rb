@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_filter :require_login, :only => [:new, :create, :edit, :update,
+:delete]
+
   def index
   end
 
@@ -12,6 +15,7 @@ class CommentsController < ApplicationController
   def create
   	respond_to do |format|
 		@comment = Comment.new(params_comment)
+    @comment.user_id = current_user.id
 		if @comment.save
 			format.js {@comments = Article.find_by_id(params[:comment][:article_id]).comments.order("id desc")}
 		else
@@ -22,6 +26,6 @@ end
 
   private
   	def params_comment
-  		params.require(:comment).permit(:user, :content, :article_id)
+  		params.require(:comment).permit(:content, :article_id, :user_id)
   	end
 end

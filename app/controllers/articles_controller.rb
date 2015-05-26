@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  before_filter :require_login, :only => [:new, :create, :edit, :update,
+:delete, :destroy]
+
   def index
   	# @articles = Article.all.order("created_at desc")
   	@articles = Article.page(params[:page]).order("created_at desc")
@@ -43,7 +46,7 @@ class ArticlesController < ApplicationController
 
   def show
   	@article = Article.find_by_id(params[:id])
-  	@comments = @article.comments.order("id desc")
+  	@comments = @article.comments.order("created_at asc")
   	@comment = Comment.new
     respond_to do |format|
       format.html
@@ -75,7 +78,7 @@ class ArticlesController < ApplicationController
 
   private
   	def param_article
-  		params.require(:article).permit(:title, :content)
+  		params.require(:article).permit(:title, :content, :user_id)
   	end
 
 end

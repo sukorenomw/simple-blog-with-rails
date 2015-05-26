@@ -1,4 +1,8 @@
 Task5::Application.routes.draw do
+  get "sign_up" => "users#new", :as => "sign_up"
+  get "login" => "sessions#new", :as => "login"
+  resources :users
+  resources :sessions
   resources :articles do
     collection { post :import }
   end
