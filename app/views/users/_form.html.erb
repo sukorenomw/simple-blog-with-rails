@@ -2,7 +2,7 @@
 	<div class="form-group">
 		<%= f.label :username, "Name:", class: "col-sm-2 control-label col-sm-offset-1" %>
 		<div class="col-sm-5 ">
-			<%= f.text_field :username, {:class => "form-control", :required => "required", :placeholder => "Insert your username .."} %>
+			<%= f.text_field :username, {:class => "form-control", :required => "required", :placeholder => "someone"} %>
 		</div>
 		<% if @user.errors[:username].any? %>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -16,7 +16,7 @@
 	<div class="form-group">
 		<%= f.label :email, "Email:", class: "col-sm-2 control-label col-sm-offset-1" %>
 		<div class="col-sm-5">
-			<%= f.text_field :email, {:class => "form-control", :required => "required", :placeholder => "Insert your email .."} %>
+			<%= f.text_field :email, {:class => "form-control", :required => "required", :placeholder => "someone@rorblog.com"} %>
 		</div>
 		<% if @user.errors[:email].any? %>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -30,7 +30,7 @@
 	<div class="form-group">
 		<%= f.label :password, "Password:", class: "col-sm-2 control-label col-sm-offset-1" %>
 		<div class="col-sm-5">
-			<%= f.password_field :password, {:class => "form-control", :required => "required", :placeholder => "Insert your password .."} %>
+			<%= f.password_field :password, {:class => "form-control", :required => "required", :placeholder => "******"} %>
 		</div>
 		<% if @user.errors[:password].any? %>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -44,7 +44,7 @@
 	<div class="form-group">
 		<%= f.label :password_confirmation, "Password Confirmation:", class: "col-sm-2 control-label col-sm-offset-1" %>
 		<div class="col-sm-5">
-			<%= f.password_field :password_confirmation, {:class => "form-control", :required => "required", :placeholder => "Password Confirmation .."} %>
+			<%= f.password_field :password_confirmation, {:class => "form-control", :required => "required", :placeholder => "******"} %>
 		</div>
 		<% if @user.errors[:password_confirmation].any? %>
 		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
