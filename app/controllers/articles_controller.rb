@@ -115,7 +115,8 @@ class ArticlesController < ApplicationController
             @content = eval("#{spreadsheet.default_sheet.singularize}").find_by_id(row["id"].to_i)
 
             if @content.present?
-              @content.update(row)
+              @content.update(title: row["title"].to_s, content: row["content"].to_s, user_id: row["user_id"].to_i)
+              # raise "#{row}"
             else
               new_row = eval("#{spreadsheet.default_sheet.singularize}").new(row)
               new_row.save!

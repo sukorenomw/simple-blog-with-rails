@@ -166,7 +166,7 @@
     <%= @article.title %>
 <% end %>
 <% content_for :article_date do -%>
-    <%= Date.strptime("#{@article.updated_at}","%Y-%m-%d %H:%M:%S %Z").strftime("%A, %m %B %Y") %>
+    <%= Date.strptime("#{@article.updated_at}","%Y-%m-%d %H:%M:%S %Z").strftime("%A, %d %B %Y") %>
 <% end %>
 <% content_for :script do -%>
 <script>
