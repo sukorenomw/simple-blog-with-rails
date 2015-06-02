@@ -16,13 +16,11 @@ class SessionsController < ApplicationController
 			flash[:error] = "Invalid email or password"
 			render "new"
 		end
-		
 	end
 
-	 def destroy
+	def destroy
         session[:user] = nil
         flash[:notice] = "logout session success"
         redirect_to root_url
-
     end
 end

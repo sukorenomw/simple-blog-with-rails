@@ -188,6 +188,12 @@
                 </a>
             </li>
             <li>
+                <a href="<%= @article.id %>/download" class="animate">
+                    <span class="desc animate"> Download as Excel </span>
+                    <span class="fa fa-file-excel-o"></span>
+                </a>
+            </li>
+            <li>
                 <a href="<%= article_path(@article.id) %>" class="animate" data-confirm="Delete this article ? " data-method="DELETE" rel="nofollow">
                     <span class="desc animate"> Delete Article </span>
                     <span class="glyphicon glyphicon-trash"></span>

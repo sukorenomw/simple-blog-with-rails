@@ -1,6 +1,9 @@
 Task5::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy"
+  get "download/all" => "articles#download_article", defaults: {format: :xlsx}
+  get "articles/:article/download" => "articles#download_article", defaults: {format: :xlsx}
   resources :users
   resources :sessions
   resources :articles do

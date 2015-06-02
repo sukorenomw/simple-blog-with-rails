@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 		@comment = Comment.new(params_comment)
     @comment.user_id = current_user.id
 		if @comment.save
-			format.js {@comments = Article.find_by_id(params[:comment][:article_id]).comments.order("id desc")}
+			format.js {@comments = Article.find_by_id(params[:comment][:article_id]).comments.order("created_at asc")}
 		else
 			format.js {@article = Article.find_by_id(params[:comment][:article_id])}
 		end

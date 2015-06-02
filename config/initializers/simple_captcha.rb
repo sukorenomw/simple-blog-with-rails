@@ -1,8 +1,8 @@
-Rails.configuration.to_prepare do
-  class SimpleCaptcha::SimpleCaptchaData < ::ActiveRecord::Base
-    attr_protected
-  end
-end
+# Rails.configuration.to_prepare do
+#   class SimpleCaptcha::SimpleCaptchaData < ::ActiveRecord::Base
+#     attr_protected
+#   end
+# end
 SimpleCaptcha.setup do |sc|
   # default: 100x28
   # sc.image_size = '120x40'

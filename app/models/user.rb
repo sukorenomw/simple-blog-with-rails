@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	has_many :comments, :dependent => :destroy
 
 	attr_accessor :password
-	attr_accessible :username, :email, :password, :password_confirmation, :captcha, :captcha_key
+	attr_accessible :id, :username, :email, :password, :password_confirmation, :captcha, :captcha_key
     before_save :add_salt_and_hash
 
 	validates :username, presence: true, uniqueness: true
